@@ -88,32 +88,41 @@
     border-radius: 9999px;
 }
 
-/* ── Categories grid ────────────────────────────────────────────────────── */
+/* ── Categories Marquee Slider ────────────────────────────────────────────── */
 
-.categories-grid {
+.skills-marquee-container {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 1100px;
+    width: 100%;
+    overflow: hidden;
+    padding: 1.25rem 0;
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
 
-@media (min-width: 640px) {
-    .categories-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.skills-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 32s linear infinite;
+    will-change: transform;
 }
 
-@media (min-width: 1024px) {
-    .categories-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+.skills-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.skills-marquee-group {
+    display: flex;
+    gap: 1.25rem;
+    padding-right: 1.25rem;
+    align-items: stretch;
 }
 
 /* ── Category card ──────────────────────────────────────────────────────── */
 
 .category-card {
+    flex: 0 0 320px;
+    width: 320px;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -130,15 +139,26 @@
 
 .category-card:hover {
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(99, 102, 241, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(99, 102, 241, 0.15);
 }
 
-/* Wide card spans full row */
-.category-card--wide {
-    grid-column: 1 / -1;
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 640px) {
+    .category-card {
+        flex: 0 0 280px;
+        width: 280px;
+    }
 }
 
 /* ── Category header ────────────────────────────────────────────────────── */

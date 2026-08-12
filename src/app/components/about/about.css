@@ -243,10 +243,6 @@
 
 /* ── Bio paragraphs ─────────────────────────────────────────────────────── */
 
-.bio-block {
-    /* intentionally minimal */
-}
-
 .bio-lead {
     margin: 0 0 0.85rem;
     font-family: 'Inter', system-ui, sans-serif;

@@ -14,11 +14,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  margin: auto;
+  margin: 0;
   min-height: 100dvh;
+  overflow-x: hidden;
   background: #000;
   color: #fff;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,

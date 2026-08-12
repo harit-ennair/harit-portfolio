@@ -705,19 +705,38 @@ export class Hero implements AfterViewInit, OnDestroy {
 
     const phrases = [
       'Creative developer crafting digital experiences at the intersection of design and technology.',
+      'Full-stack developer specializing in Java & Spring Boot on the back end.',
+      'Building robust REST APIs and microservices with Java — one endpoint at a time.',
       'Turning ideas into elegant, performant web applications.',
+      'Angular on the front, Spring Boot on the back — and a black hole in the middle.',
       'Passionate about clean code, great design, and everything in between.',
       'Building things that live on the internet — one pixel at a time.',
+      'Java dev by day, pixel-pusher by night.',
+      'Building digital experiences where code meets the unknown.',
+      'Exploring the space between technology, creativity, and code.',
+      'Writing code at the edge of imagination.',
+      'Turning ideas into systems that pull everything together.',
+      'Building APIs with gravity.',
+      'Where backend logic bends the rules.',
+      'Engineering digital experiences beyond the ordinary.',
+      'Code is the gravity that holds the product together.',
+      'Building systems with enough power to bend the digital space.',
+      'Lost somewhere between Java, TypeScript, and the next big idea.',
+      'Entering the event horizon of modern web development.',
+      'One developer. Infinite possibilities.',
+      'Building beyond the visible layer.',
+      'Behind the interface, there is a universe of code.',
+      'Creating digital experiences from the inside out.',
     ];
 
-    const TYPE_SPEED   = 35;   // ms per character typed
-    const ERASE_SPEED  = 18;   // ms per character erased (faster feels natural)
-    const PAUSE_AFTER  = 2200; // ms to hold the completed phrase
+    const TYPE_SPEED = 35;   // ms per character typed
+    const ERASE_SPEED = 18;   // ms per character erased (faster feels natural)
+    const PAUSE_AFTER = 2200; // ms to hold the completed phrase
     const PAUSE_BEFORE = 500;  // ms to pause before typing the next phrase
 
     let phraseIndex = 0;
-    let charIndex   = 0;
-    let erasing     = false;
+    let charIndex = 0;
+    let erasing = false;
 
     el.textContent = '';
     el.classList.add('tw-cursor');

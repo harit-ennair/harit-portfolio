@@ -440,6 +440,7 @@ export class Hero implements AfterViewInit, OnDestroy {
 
   @ViewChild('heroHost', { static: false }) hostRef!: ElementRef<HTMLDivElement>;
   @ViewChild('heroCanvas', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('heroTagline', { static: false }) taglineRef!: ElementRef<HTMLParagraphElement>;
 
   narrow = false;
 
@@ -484,6 +485,9 @@ export class Hero implements AfterViewInit, OnDestroy {
   private reduced = false;
   private software = false;
   private isGL2 = false;
+
+  // Typewriter animation
+  private twDelay: ReturnType<typeof setTimeout> | null = null;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
@@ -641,12 +645,16 @@ export class Hero implements AfterViewInit, OnDestroy {
       }
     };
     canvas.addEventListener('webglcontextrestored', this.onRestored);
+
+    // Kick off typewriter animation for the tagline
+    this.ngZone.runOutsideAngular(() => this.startTypewriter());
   }
 
   ngOnDestroy(): void {
     if (!this.isBrowser) return;
     this.running = false;
     cancelAnimationFrame(this.raf);
+    if (this.twDelay !== null) clearTimeout(this.twDelay);
     this.ro?.disconnect();
     this.io?.disconnect();
     if (this.onVisibility) {
@@ -687,6 +695,66 @@ export class Hero implements AfterViewInit, OnDestroy {
       this.steps = 300;
       this.resolution = 0.7;
     }
+  }
+
+  /* --- typewriter --------------------------------------------------------- */
+
+  private startTypewriter(): void {
+    const el = this.taglineRef?.nativeElement;
+    if (!el) return;
+
+    const phrases = [
+      'Creative developer crafting digital experiences at the intersection of design and technology.',
+      'Turning ideas into elegant, performant web applications.',
+      'Passionate about clean code, great design, and everything in between.',
+      'Building things that live on the internet — one pixel at a time.',
+    ];
+
+    const TYPE_SPEED   = 35;   // ms per character typed
+    const ERASE_SPEED  = 18;   // ms per character erased (faster feels natural)
+    const PAUSE_AFTER  = 2200; // ms to hold the completed phrase
+    const PAUSE_BEFORE = 500;  // ms to pause before typing the next phrase
+
+    let phraseIndex = 0;
+    let charIndex   = 0;
+    let erasing     = false;
+
+    el.textContent = '';
+    el.classList.add('tw-cursor');
+
+    const tick = () => {
+      const current = phrases[phraseIndex];
+
+      if (!erasing) {
+        // — typing —
+        charIndex++;
+        el.textContent = current.slice(0, charIndex);
+
+        if (charIndex >= current.length) {
+          // Finished typing → pause, then start erasing
+          erasing = true;
+          this.twDelay = setTimeout(tick, PAUSE_AFTER);
+          return;
+        }
+        this.twDelay = setTimeout(tick, TYPE_SPEED);
+      } else {
+        // — erasing —
+        charIndex--;
+        el.textContent = current.slice(0, charIndex);
+
+        if (charIndex <= 0) {
+          // Finished erasing → move to next phrase
+          erasing = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          this.twDelay = setTimeout(tick, PAUSE_BEFORE);
+          return;
+        }
+        this.twDelay = setTimeout(tick, ERASE_SPEED);
+      }
+    };
+
+    // Initial delay before the first phrase starts
+    this.twDelay = setTimeout(tick, 800);
   }
 
   /* --- GL helpers --------------------------------------------------------- */

@@ -95,6 +95,7 @@
 .hero-tagline {
   margin: 1.5rem 0 0;
   max-width: 28rem;
+  min-height: calc(0.95rem * 1.65 * 2); /* reserve 2 lines at all times */
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
@@ -169,4 +170,19 @@
   color: #fff;
   border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* --- typewriter cursor ---------------------------------------------------- */
+
+.hero-tagline.tw-cursor::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 1px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: tw-blink 0.75s step-end infinite;
+}
+
+@keyframes tw-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }

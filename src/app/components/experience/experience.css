@@ -530,13 +530,13 @@
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.linkedin-link-btn {
+.website-link-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.04);
@@ -545,10 +545,10 @@
   transition: all 0.25s ease;
 }
 
-.linkedin-link-btn svg:first-child {
+.globe-icon {
   width: 1rem;
   height: 1rem;
-  color: #0a66c2;
+  color: var(--accent-color);
 }
 
 .arrow-icon {
@@ -557,13 +557,14 @@
   transition: transform 0.2s ease;
 }
 
-.linkedin-link-btn:hover {
+.website-link-btn:hover {
   color: #fff;
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.linkedin-link-btn:hover .arrow-icon {
+.website-link-btn:hover .arrow-icon {
   transform: translate(2px, -2px);
 }
 

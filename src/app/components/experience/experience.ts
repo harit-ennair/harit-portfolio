@@ -18,7 +18,7 @@ export interface ExperienceItem {
   duration: string;
   location?: string;
   workMode?: string;
-  linkedInUrl: string;
+  websiteUrl: string;
   description: string;
   highlights?: string[];
   skills: string[];
@@ -51,8 +51,7 @@ export class Experience implements AfterViewInit, OnDestroy {
       employmentType: 'Full-time',
       period: 'Oct 2024 - Aug 2026',
       duration: '1 yr 11 mos',
-      linkedInUrl:
-        'https://www.linkedin.com/in/harit-ennair/details/experience/edit/forms/2554603529/',
+      websiteUrl: 'https://youcode.ma/',
       description:
         'My journey at YouCode was a hands-on experience focused on learning through real-world projects and continuous practice. Throughout the program, I worked on web development projects, database design, backend development, frontend interfaces, API integration, teamwork, and problem-solving challenges. The project-based and collaborative approach helped me develop strong technical and soft skills while learning how to work in an environment close to the professional world.',
       skills: [
@@ -106,8 +105,7 @@ export class Experience implements AfterViewInit, OnDestroy {
       duration: '3 mos',
       location: 'Tangier, Tanger-Tetouan-Al Hoceima, Morocco',
       workMode: 'On-site',
-      linkedInUrl:
-        'https://www.linkedin.com/in/harit-ennair/details/experience/edit/forms/2740042150/',
+      websiteUrl: 'https://www.aptiv.com/en',
       description:
         'Designed and developed a full-stack training and assessment platform with Laravel 10, including multi-role authentication, advanced quiz modules, progress tracking, responsive dashboards, and real-time reporting to streamline employee competency testing in manufacturing environments.',
       skills: ['Laravel 10', 'PHP', 'MySQL', 'AJAX', 'Communication'],
@@ -123,8 +121,7 @@ export class Experience implements AfterViewInit, OnDestroy {
       duration: '1 yr 11 mos',
       location: 'Youssoufia, Marrakesh-Safi, Morocco',
       workMode: 'On-site',
-      linkedInUrl:
-        'https://www.linkedin.com/in/harit-ennair/details/experience/edit/forms/2554608505/',
+      websiteUrl: 'https://um6p.ma/en/cultured',
       description:
         'My experience with Nkoon by Cultur.Ed was a journey of creativity, self-discovery, and collaboration. Throughout the program, I took part in activities such as photography, creative workshops, group discussions, cultural activities, teamwork challenges, and interactive sessions. These experiences encouraged me to step outside my comfort zone, express my ideas, and explore new ways of seeing and understanding the world. Through Nkoon, I developed valuable skills in communication, creativity, teamwork, leadership, critical thinking, adaptability, problem-solving, and self-confidence.',
       highlights: [

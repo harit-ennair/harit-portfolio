@@ -12,7 +12,7 @@
 .skills-section {
     position: relative;
     width: 100%;
-    padding: 0rem 1.5rem 6rem;
+    padding: 0 1.5rem;
     background: #000;
     overflow: hidden;
 }
@@ -34,13 +34,13 @@
 
 @media (min-width: 640px) {
     .skills-section {
-        padding: 5rem 2.5rem 6rem;
+        padding: 0 2.5rem;
     }
 }
 
 @media (min-width: 1024px) {
     .skills-section {
-        padding: 5rem 5rem 7rem;
+        padding: 0 5rem;
     }
 }
 

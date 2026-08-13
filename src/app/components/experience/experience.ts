@@ -51,6 +51,7 @@ export class Experience implements AfterViewInit, OnDestroy {
       employmentType: 'Full-time',
       period: 'Oct 2024 - Aug 2026',
       duration: '1 yr 11 mos',
+      location: 'Youssoufia, Morocco',
       websiteUrl: 'https://youcode.ma/',
       description:
         'My journey at YouCode was a hands-on experience focused on learning through real-world projects and continuous practice. Throughout the program, I worked on web development projects, database design, backend development, frontend interfaces, API integration, teamwork, and problem-solving challenges. The project-based and collaborative approach helped me develop strong technical and soft skills while learning how to work in an environment close to the professional world.',
@@ -103,12 +104,12 @@ export class Experience implements AfterViewInit, OnDestroy {
       employmentType: 'Full-time',
       period: 'May 2025 - Jul 2025',
       duration: '3 mos',
-      location: 'Tangier, Tanger-Tetouan-Al Hoceima, Morocco',
+      location: 'Tangier, Morocco',
       workMode: 'On-site',
       websiteUrl: 'https://www.aptiv.com/en',
       description:
         'Designed and developed a full-stack training and assessment platform with Laravel 10, including multi-role authentication, advanced quiz modules, progress tracking, responsive dashboards, and real-time reporting to streamline employee competency testing in manufacturing environments.',
-      skills: ['Laravel 10', 'PHP', 'MySQL', 'AJAX', 'Communication'],
+      skills: ['Laravel', 'PHP', 'MySQL', 'AJAX', 'Communication'],
       accentColor: '#ef4444', // Aptiv crimson red accent
       icon: 'briefcase',
     },
@@ -119,7 +120,7 @@ export class Experience implements AfterViewInit, OnDestroy {
       employmentType: 'Full-time',
       period: 'Sep 2022 - Jul 2024',
       duration: '1 yr 11 mos',
-      location: 'Youssoufia, Marrakesh-Safi, Morocco',
+      location: 'Youssoufia, Morocco',
       workMode: 'On-site',
       websiteUrl: 'https://um6p.ma/en/cultured',
       description:
@@ -220,7 +221,7 @@ export class Experience implements AfterViewInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
     private hostRef: ElementRef<HTMLElement>
-  ) {}
+  ) { }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
